@@ -1,0 +1,11 @@
+.lang {
+    &__selection {
+      cursor: pointer;
+      z-index: 11;
+    }
+    > i {
+      width: 30px !important;
+      height: 30px !important;
+      background-size: cover !important;
+    }
+  }

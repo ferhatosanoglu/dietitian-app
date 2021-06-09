@@ -5,9 +5,9 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root',
 })
 export class LanguageService {
-  constructor(private translate: TranslateService) {}
+  constructor(private translate: TranslateService) { }
 
-  setLanguage(language) {
+  setLanguage(language: string) {
     localStorage.setItem('language', language);
     this.translate.use(language);
   }

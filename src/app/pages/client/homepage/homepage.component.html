@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-3 col-sm-12 ml-auto ">
+        <mat-form-field class="w-100">
+            <mat-label>{{ 'Search' | translate }}</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText"
+                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
+            <a type="button" matSuffix [attr.aria-label]="'Search'">
+                <mat-icon>search</mat-icon>
+            </a>
+        </mat-form-field>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>{{ 'TC' | translate }}</th>
+                    <th>{{ 'Name Surname' | translate }}</th>
+                    <th>{{ 'Disease' | translate }}</th>
+                    <th>{{ 'Diyet' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users | filter:searchText">
+                    <td> {{ user.Id }} </td>
+                    <td> {{ user.FirstName }} {{ user.LastName }}</td>
+                    <td> {{ user.EmailAddress }}</td>
+                    <td> {{ user.UserTypeName | translate }}</td>
+                    <td>{{ user.InstitutionName }}</td>
+                    <td class="list-button text-right">
+                        <a mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon class="list-menu">more_vert</mat-icon>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <a mat-menu-item>
+                                <mat-icon>edit</mat-icon>
+                                <span>{{ 'Edit' | translate }}</span>
+                            </a>
+                            <a mat-menu-item>
+                                <mat-icon>delete</mat-icon>
+                                <span>{{ 'Delete' | translate }}</span>
+                            </a>
+                        </mat-menu>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
