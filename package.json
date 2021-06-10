@@ -8,7 +8,7 @@
     "start:dev": "ng serve --live-reload=true",
     "start:heroku": "node serve.js -p $PORT",
     "heroku-postbuild": "ng build --configuration=stage",
-    "build": "ng build --configuration=production",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
