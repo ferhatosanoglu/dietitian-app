@@ -1,7 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { DietService, DiseaseService, LanguageService, PatientService } from '../../../utils';
-import { MatDialog, MatDialogTitle } from '@angular/material/dialog';
+import { DietService, DiseaseService, PatientService } from '../../../utils';
+import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Diet, Disease, Patient } from '../../../models';
@@ -17,11 +16,9 @@ import {
 export class HomepageComponent implements OnInit {
 
   constructor(
-    private _languageService: LanguageService,
     private _patientService: PatientService,
     private _diseaseService: DiseaseService,
     private _dietService: DietService,
-    private _activatedRoute: ActivatedRoute,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
     private _dialog: MatDialog

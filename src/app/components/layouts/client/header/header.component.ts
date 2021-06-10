@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoctorService, LanguageService } from '../../../../utils';
-import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Doctor } from 'src/app/models';
 
 
@@ -16,9 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private _languageService: LanguageService,
     private _doctorService: DoctorService,
-    private _dialog: MatDialog,
-    private _activatedRoute: ActivatedRoute,
-    private _router: Router
+    private _activatedRoute: ActivatedRoute
   ) { }
   Id = this._activatedRoute.snapshot.paramMap.get('id');
   doctor: Doctor = new Doctor;

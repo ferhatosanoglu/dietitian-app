@@ -1,7 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { DoctorService, LanguageService } from '../../utils';
-import { MatDialog, MatDialogTitle } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
+import { DoctorService } from '../../utils';
+import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Doctor } from '../../models';
@@ -18,9 +17,7 @@ import {
 export class AdminComponent implements OnInit {
 
   constructor(
-    private _languageService: LanguageService,
     private _doctorService: DoctorService,
-    private _activatedRoute: ActivatedRoute,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
     private _dialog: MatDialog
