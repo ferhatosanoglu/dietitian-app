@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node serve.js",
+    "start:prod": "node server.js",
     "start:stage": "ng serve --configuration=stage --host 0.0.0.0",
     "start:dev": "ng serve --live-reload=true",
     "start:heroku": "node serve.js -p $PORT",
@@ -35,6 +36,7 @@
     "@ngx-translate/http-loader": "^6.0.0",
     "bootstrap": "^5.0.1",
     "bootstrap-icons": "^1.5.0",
+    "express": "^4.17.1",
     "flag-icon-css": "^3.5.0",
     "ng2-search-filter": "^0.5.1",
     "ngx-pagination": "^5.1.0",
