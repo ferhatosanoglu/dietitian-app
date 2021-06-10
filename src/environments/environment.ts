@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://dietitian-app.herokuapp.com/',
+  apiUrl: 'https://api-dietitian-app.herokuapp.com/',
 };
 
 /*
