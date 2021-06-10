@@ -13,8 +13,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/layouts/client/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
-} from './components';
-import {
   HomepageComponent
 } from './pages';
 import { AdminComponent } from './pages/admin/admin.component';
@@ -24,6 +22,8 @@ import { AddDietComponent } from './components/add-diet/add-diet.component';
 import { DialogWindowComponent } from './components/dialog-window/dialog-window.component';
 import { AddPatientComponent } from './components/add-patient/add-patient.component';
 import { AddDiseaseComponent } from './components/add-disease/add-disease.component';
+import { LoginComponent } from './components/login/login.component';
+import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -39,7 +39,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddDietComponent,
     DialogWindowComponent,
     AddPatientComponent,
-    AddDiseaseComponent
+    AddDiseaseComponent,
+    LoginComponent,
+    AddDoctorComponent
   ],
   imports: [
     BrowserModule,

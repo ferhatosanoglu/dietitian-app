@@ -1,0 +1,25 @@
+<div class="screen">
+    <div class="card">
+        <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+            <img src="../../../assets/image/44073.jpg" style="width:100%;">
+            <mat-form-field class="w-100">
+                <mat-label>{{ "T.C." | translate }}</mat-label>
+                <input matInput pattern="^[0-9]+$" maxlength="11" minlength="11"
+                    placeholder="{{ 'Enter the T.C' | translate }}" name="TC" #Tc="ngModel" [(ngModel)]="_model.TC"
+                    required />
+                <mat-error *ngIf="Tc.invalid && Tc.touched">
+                    {{ "Name field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-100">
+                <mat-label>{{"Password" | translate}}</mat-label>
+                <input matInput type="password" name="Password" #Password="ngModel" [(ngModel)]="_model.Password"
+                    placeholder="{{'Password' | translate}}" required>
+                <mat-error *ngIf="Password.invalid && Password.touched">
+                    {{ "Password field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+            <button type="submit" class="btn">
+                Login
+            </button>
+        </form>
+    </div>
+</div>

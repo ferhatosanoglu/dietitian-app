@@ -1,26 +1,36 @@
 <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span class="fs-5 d-none d-sm-inline">{{'Kişi ismi'}}</span>
-    </a>
+    <span class="fs-2 d-none d-sm-inline">{{ doctor.Name }} {{ doctor.Surname}}</span>
+    <span class="fs-2 d-none d-sm-inline mx-auto" *ngIf="Id=='admin'">{{ "Admin Panel"}}</span>
     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-        <li class="nav-item">
-            <a [routerLink]="['']" class="nav-link align-middle px-0">
-                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">{{'Home' | translate}}</span>
+        <li class="mt-3">
+            <a [routerLink]="['patient']" class="nav-link align-middle px-0">
+                <i class="fas fa-procedures" style="font-size:35px;"></i> <b class=" ms-1 d-none d-sm-inline"
+                    style="font-size:20px;">{{'Patients'
+                    | translate}}</b>
             </a>
         </li>
-        <li>
-            <a [routerLink]="['/diet']" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">{{'Diets' |
-                    translate}}</span></a>
+        <li class="mt-3">
+            <a [routerLink]="['diet']" class="nav-link px-0 align-middle">
+                <i class="fas fa-utensils" style="font-size:40px;"></i><b class="ms-1 d-none d-sm-inline"
+                    style="font-size:20px;">{{'Diets' |
+                    translate}}</b></a>
         </li>
-
-        <li>
-            <a [routerLink]="['/disease']" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">{{'Diseases' | translate}}</span>
+        <li class="mt-3">
+            <a [routerLink]="['disease']" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                <i class="fas fa-lungs-virus" style="font-size:30px;"></i><b class="ms-1 d-none d-sm-inline"
+                    style="font-size:20px;">{{'Diseases' |
+                    translate}}</b>
+            </a>
+        </li>
+        <li class="mt-3" *ngIf="Id=='admin'">
+            <a [routerLink]="['doctor']" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                <i class="fas fa-user-md" style="font-size:40px;"></i><b class="ms-1 d-none d-sm-inline"
+                    style="font-size:20px;">{{'Doctors' |
+                    translate}}</b>
             </a>
         </li>
     </ul>
-    <div class="w-100">
+    <div class=" mt-3 mb-5 w-100">
         <a (click)="setLang('tr')" class="lang__selection lang p-2">
             <i class="flag-icon flag-icon-tr rounded-circle"></i>
         </a>

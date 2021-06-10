@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
-  ClientLayoutComponent
-} from './components/layouts';
+  ClientLayoutComponent,
+  LoginComponent
+} from './components';
 import {
   HomepageComponent,
   AdminComponent,
@@ -13,10 +14,15 @@ import {
 const routes: Routes = [
   {
     path: '',
+    component: LoginComponent,
+    data: { title: 'login' }
+  },
+  {
+    path: ':id',
     component: ClientLayoutComponent,
     children: [
       {
-        path: '',
+        path: 'patient',
         component: HomepageComponent,
         data: { title: 'Dietitian App' }
       },
@@ -29,21 +35,14 @@ const routes: Routes = [
         path: 'diet',
         component: DietComponent,
         data: { title: 'Diet' }
-      }
-    ]
-  },
-  {
-    path: "admin",
-    component: ClientLayoutComponent,
-    children: [
+      },
       {
-        path: '',
+        path: 'doctor',
         component: AdminComponent,
         data: { title: 'Admin' }
       }
     ]
   },
-
 ];
 
 @NgModule({

@@ -1,0 +1,52 @@
+<div class="row w-100">
+    <div class="col-4 add-button pt-2">
+        <button type="button" class="btn btn-sm btn-outline-success" (click)="openAddDoctor()">
+            <i class="fas fa-plus"></i> {{ "Add Doctor" | translate }}
+        </button>
+    </div>
+    <div class="col-8 ml-auto text-right pr-2 d-flex justify-content-end">
+        <mat-form-field>
+            <mat-label>{{ "Search" | translate }}</mat-label>
+            <input matInput type="text" [(ngModel)]="searchText"
+                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText" />
+            <a type="button" matSuffix [attr.aria-label]="'Search'">
+                <mat-icon>search</mat-icon>
+            </a>
+        </mat-form-field>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>{{ 'TC' | translate }}</th>
+                    <th>{{ 'Name' | translate }}</th>
+                    <th>{{ 'Surname' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let doctor of doctors | filter:searchText">
+                    <td> {{ doctor.TC }} </td>
+                    <td> {{ doctor.Name }}</td>
+                    <td> {{ doctor.Surname }}</td>
+                    <td class="list-button text-right">
+                        <a mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon class="list-menu">more_vert</mat-icon>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <a mat-menu-item (click)="openAddDoctor(doctor.id)">
+                                <mat-icon>edit</mat-icon>
+                                <span>{{ 'Edit' | translate }}</span>
+                            </a>
+                            <a mat-menu-item (click)="doctorDelete(doctor.id)">
+                                <mat-icon>delete</mat-icon>
+                                <span>{{ 'Delete' | translate }}</span>
+                            </a>
+                        </mat-menu>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

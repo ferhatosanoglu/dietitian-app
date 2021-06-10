@@ -1,0 +1,18 @@
+.mat-input-element:disabled {
+    color: black;
+  }
+  .institution-dialog {
+    &__header {
+      background-color: #2186df !important;
+      margin: -24px -24px 0px -24px;
+      box-shadow: 0 8px 16px 0 #678eec;
+      height: 50px;
+      color: #fff;
+    }
+    &__content {
+      padding: 20px 10px 0px 10px;
+    }
+    &__modal-header {
+      border-bottom: none;
+    }
+  }

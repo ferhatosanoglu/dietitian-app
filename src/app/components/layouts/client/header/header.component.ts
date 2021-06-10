@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LanguageService } from '../../../../utils';
+import { DoctorService, LanguageService } from '../../../../utils';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Doctor } from 'src/app/models';
 
 
 @Component({
@@ -11,17 +12,24 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+
   constructor(
     private _languageService: LanguageService,
+    private _doctorService: DoctorService,
     private _dialog: MatDialog,
+    private _activatedRoute: ActivatedRoute,
     private _router: Router
   ) { }
-
+  Id = this._activatedRoute.snapshot.paramMap.get('id');
+  doctor: Doctor = new Doctor;
   lang: string =
     this._languageService.getLanguage() == 'en'
       ? 'us'
       : this._languageService.getLanguage() || 'tr';
-  ngOnInit(): void { }
+  async ngOnInit() {
+    this.doctor = <Doctor>await this._doctorService.findAsync(this.Id);
+    console.log(this.doctor);
+  }
 
   setLang(lang: string) {
     this.lang = lang == 'en' ? 'us' : lang;

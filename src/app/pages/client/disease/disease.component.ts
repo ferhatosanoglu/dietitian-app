@@ -52,7 +52,7 @@ export class DiseaseComponent implements OnInit {
   async diseaseDelete(id: any) {
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
-        message: 'Are you sure you want to delete the diet ?',
+        message: 'Are you sure you want to delete the disease ?',
         icon: 'fa fa-exclamation',
       },
     });
@@ -67,7 +67,7 @@ export class DiseaseComponent implements OnInit {
           );
           let notificationMessage: string;
           this._translateService
-            .get('Diet information was successfully deleted')
+            .get('Disease information was successfully deleted')
             .subscribe((value) => (notificationMessage = value));
           this._snackBar.open(notificationMessage!, 'X', {
             duration: 3000,

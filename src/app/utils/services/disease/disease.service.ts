@@ -58,11 +58,6 @@ export class DiseaseService {
   errorNotification(error: any) {
     let errorMessage: string;
     switch (error.status) {
-      case 417:
-        this._translateService
-          .get('Please enter correct disease information !')
-          .subscribe((value) => (errorMessage = value));
-        break;
       default:
         this._translateService
           .get(

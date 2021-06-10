@@ -1,0 +1,39 @@
+.screen{
+  width: 100%;  
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #f2f2f2;  
+}
+
+.card {
+  width: 390px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 77px 55px 33px 55px;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1); 
+}
+
+button {
+	outline: none !important;
+	border: none;
+  background: #a64bf4;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  &:hover {
+	  cursor: pointer;
+    color: #fff;
+  }
+}

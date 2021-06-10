@@ -60,11 +60,6 @@ export class DietService {
   errorNotification(error: any) {
     let errorMessage: string;
     switch (error.status) {
-      case 417:
-        this._translateService
-          .get('Please enter correct diet information !')
-          .subscribe((value) => (errorMessage = value));
-        break;
       default:
         this._translateService
           .get(
