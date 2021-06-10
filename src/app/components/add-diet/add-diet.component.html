@@ -1,0 +1,61 @@
+<div ma-dialog-title class="institution-dialog__header">
+    <div class="institution-dialog__modal-header d-flex justify-content-between mx-1">
+        <h2>{{ "Diet Transactions" | translate }}</h2>
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon>close</mat-icon>
+        </a>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography institution-dialog__content">
+    <form #addDietForm="ngForm" (ngSubmit)="onSave(addDietForm)">
+        <div class="form-group mt-2">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ "Diet Name" | translate }}</mat-label>
+                <input matInput maxlength="50" type="text" placeholder="{{ 'Enter Diet Name' | translate }}" name="Name"
+                    #Name="ngModel" [(ngModel)]="_model.Name" required />
+                <mat-error *ngIf="Name.invalid && Name.touched">
+                    {{ "Diet Name field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>{{ "Monday" | translate }}</mat-label>
+                <textarea matInput type="text" placeholder="{{ 'Enter The Diet' | translate }}" name="Monday"
+                    #Monday="ngModel" [(ngModel)]="_model.Monday"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>{{ "Tuesday" | translate }}</mat-label>
+                <textarea matInput type="text" placeholder="{{ 'Enter The Diet' | translate }}" name="Tuesday"
+                    #Tuesday="ngModel" [(ngModel)]="_model.Tuesday"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>{{ "Wednesday" | translate }}</mat-label>
+                <textarea matInput type="text" placeholder="{{ 'Enter The Diet' | translate }}" name="Wednesday"
+                    #Wednesday="ngModel" [(ngModel)]="_model.Wednesday"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>{{ "Thursday" | translate }}</mat-label>
+                <textarea matInput type="text" placeholder="{{ 'Enter The Diet' | translate }}" name="Thursday"
+                    #Thursday="ngModel" [(ngModel)]="_model.Thursday"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>{{ "Friday" | translate }}</mat-label>
+                <textarea matInput type="text" placeholder="{{ 'Enter The Diet' | translate }}" name="Friday"
+                    #Friday="ngModel" [(ngModel)]="_model.Friday"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>{{ "Saturday" | translate }}</mat-label>
+                <textarea matInput type="text" placeholder="{{ 'Enter The Diet' | translate }}" name="Saturday"
+                    #Saturday="ngModel" [(ngModel)]="_model.Saturday"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="col-6">
+                <mat-label>{{ "Sunday" | translate }}</mat-label>
+                <textarea matInput type="text" placeholder="{{ 'Enter The Diet' | translate }}" name="Sunday"
+                    #Sunday="ngModel" [(ngModel)]="_model.Sunday"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary w-100">
+                {{ "Save" | translate }}
+            </button>
+        </div>
+    </form>
+</mat-dialog-content>

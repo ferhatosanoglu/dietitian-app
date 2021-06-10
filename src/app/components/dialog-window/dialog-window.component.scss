@@ -1,0 +1,47 @@
+.dialog-container {
+    margin: -24px;
+  }
+  
+  .content-container {
+    color: #8f9cb5;
+    display: flex;
+  }
+  
+  .close-icon {
+    margin-left: auto;
+    order: 2;
+    font-weight: bolder;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
+  .warning-button {
+    height: 50px;
+    width: 50%;
+    border-radius: 0px;
+    color: white;
+    border: none;
+    outline: none;
+  
+    &__yes {
+      background-color: #fc7169;
+    }
+  
+    &__no {
+      background-color: #b6bece;
+    }
+  }
+  
+  span.content-span {
+    padding: 35px 16px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+  }
+  
+  i.imargin {
+    margin-top: auto;
+    margin-bottom: auto;
+  }

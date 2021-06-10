@@ -4,6 +4,17 @@
     "Diseases": "Hastalıklar",
     "Home": "Anasayfa",
     "Diets": "Diyetler",
+    "Diet Name": "Diet İsmi",
+    "Add Diet": "Diyet ekle",
+    "Add Disease": "Hastalık ekle",
     "Name Surname": "İsim Soyisim",
-    "Search": "Ara"
+    "Search": "Ara",
+    "Add Patient": "Hasta ekle",
+    "Monday": "Pazartesi",
+    "Tuesday": "Salı",
+    "Wednesday": "Çarşamba",
+    "Thursday": "Perşembe",
+    "Friday": "Cuma",
+    "Saturday": "Cumartesi",
+    "Sunday": "Cumartesi"
 }

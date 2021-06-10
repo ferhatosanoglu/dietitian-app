@@ -1,0 +1,13 @@
+<div class="dialog-container">
+    <div class="content-container">
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon class="m-2">close</mat-icon>
+        </a>
+        <i class="{{ data.icon }} fa-2x ml-3 imargin"></i>
+        <span class="content-span full-width">{{ data.message | translate }}</span>
+    </div>
+    <button mat-flat-button class="warning-button warning-button__no" [mat-dialog-close]="false">{{ 'NO' | translate
+        }}</button>
+    <button mat-flat-button class="warning-button warning-button__yes" [mat-dialog-close]="true">{{ 'YES' | translate
+        }}</button>
+</div>

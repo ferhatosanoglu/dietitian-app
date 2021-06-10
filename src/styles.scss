@@ -5,3 +5,24 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.notification {
+    color: white;
+  
+    &__error {
+      background-color: brown;
+    }
+  
+    &__error button {
+      color: white;
+      background-color: brown;
+    }
+  
+    &__success {
+      background-color: green;
+    }
+  
+    &__success button {
+      color: white;
+      background-color: green;
+    }
+  }

@@ -1,25 +1,24 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DietService, DiseaseService, LanguageService, PatientService } from '../../../utils';
+import { LanguageService, DietService } from '../../../utils';
 import { MatDialog, MatDialogTitle } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Diet, Disease, Patient } from '../../../models';
+import { Diet } from '../../../models';
 import {
-  AddPatientComponent,
+  AddDietComponent,
   DialogWindowComponent
 } from '../../../components';
+
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.scss'],
+  selector: 'app-diet',
+  templateUrl: './diet.component.html',
+  styleUrls: ['./diet.component.scss']
 })
-export class HomepageComponent implements OnInit {
+export class DietComponent implements OnInit {
 
   constructor(
     private _languageService: LanguageService,
-    private _patientService: PatientService,
-    private _diseaseService: DiseaseService,
     private _dietService: DietService,
     private _activatedRoute: ActivatedRoute,
     private _snackBar: MatSnackBar,
@@ -27,44 +26,34 @@ export class HomepageComponent implements OnInit {
     private _dialog: MatDialog
   ) { }
 
-  patients!: Array<Patient>;
-  diseases!: Array<Disease>;
   diets!: Array<Diet>;
   searchText!: string;
 
   async ngOnInit() {
     try {
-      this.patients = <Array<Patient>>await this._patientService.listAsync();
       this.diets = <Array<Diet>>await this._dietService.listAsync();
-      this.diseases = <Array<Disease>>await this._diseaseService.listAsync();
     } catch {
-      this._patientService.errorNotification(Error);
+      this._dietService.errorNotification(Error);
     }
   }
-  findDisease(Id: number) {
-    const temp = this.diseases.find(name => name.id == Id)
-    return temp?.Name
-  }
-  findDiet(Id: number) {
-    const temp = this.diets.find(name => name.id == Id)
-    return temp?.Name
-  }
-  openAddPatient(Id = null) {
-    const diologRef = this._dialog.open(AddPatientComponent, {
+
+  openAddDiet(Id = null) {
+    const diologRef = this._dialog.open(AddDietComponent, {
       width: '80vw',
       data:
         Id == null
           ? null
-          : this.patients.find((patient) => patient.id == Id),
+          : this.diets.find((diet) => diet.id == Id),
     });
     diologRef.afterClosed().subscribe((result: any) => {
       if (result) this.ngOnInit();
     });
   }
-  async patientDelete(id: any) {
+
+  async dietDelete(id: any) {
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
-        message: 'Are you sure you want to delete the patient ?',
+        message: 'Are you sure you want to delete the diet ?',
         icon: 'fa fa-exclamation',
       },
     });
@@ -72,14 +61,14 @@ export class HomepageComponent implements OnInit {
     diologRef.afterClosed().subscribe(async (result: boolean) => {
       if (result) {
         try {
-          await this._patientService.deleteAsync({ id });
-          this.patients.splice(
-            this.patients.findIndex((patient) => patient.id == id),
+          await this._dietService.deleteAsync({ id });
+          this.diets.splice(
+            this.diets.findIndex((diet) => diet.id == id),
             1
           );
           let notificationMessage: string;
           this._translateService
-            .get('Patient information was successfully deleted')
+            .get('Diet information was successfully deleted')
             .subscribe((value) => (notificationMessage = value));
           this._snackBar.open(notificationMessage!, 'X', {
             duration: 3000,
@@ -88,11 +77,9 @@ export class HomepageComponent implements OnInit {
             horizontalPosition: 'right',
           });
         } catch (error) {
-          this._patientService.errorNotification(error);
+          this._dietService.errorNotification(error);
         }
       }
     });
   }
-
 }
-

@@ -5,7 +5,9 @@ import {
 } from './components/layouts';
 import {
   HomepageComponent,
-  AdminComponent
+  AdminComponent,
+  DiseaseComponent,
+  DietComponent
 } from './pages';
 
 const routes: Routes = [
@@ -17,6 +19,16 @@ const routes: Routes = [
         path: '',
         component: HomepageComponent,
         data: { title: 'Dietitian App' }
+      },
+      {
+        path: 'disease',
+        component: DiseaseComponent,
+        data: { title: 'Disease' }
+      },
+      {
+        path: 'diet',
+        component: DietComponent,
+        data: { title: 'Diet' }
       }
     ]
   },

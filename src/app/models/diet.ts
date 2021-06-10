@@ -1,4 +1,4 @@
-export class Diyet {
+export class Diet {
     id!: number;
     Name!: string;
     Monday!: string;

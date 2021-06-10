@@ -1,7 +1,7 @@
 <div class="row w-100">
     <div class="col-4 add-button pt-2">
-        <button type="button" class="btn btn-sm btn-outline-success" (click)="openAddPatient()">
-            <i class="fas fa-plus"></i> {{ "Add Patient" | translate }}
+        <button type="button" class="btn btn-sm btn-outline-success" (click)="openAddDisease()">
+            <i class="fas fa-plus"></i> {{ "Add Disease" | translate }}
         </button>
     </div>
     <div class="col-8 ml-auto text-right pr-2 d-flex justify-content-end">
@@ -20,28 +20,22 @@
         <table class="table table-hover table-striped">
             <thead>
                 <tr>
-                    <th>{{ 'TC' | translate }}</th>
-                    <th>{{ 'Name Surname' | translate }}</th>
-                    <th>{{ 'Disease' | translate }}</th>
-                    <th>{{ 'Diet' | translate }}</th>
+                    <th>{{ 'Disease Name' | translate }}</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let patient of patients | filter:searchText">
-                    <td> {{ patient.TC }} </td>
-                    <td> {{ patient.Name }} {{ patient.Surname }}</td>
-                    <td> {{ findDisease(patient.DiseaseId)}}</td>
-                    <td> {{ findDiet(patient.DietId)}}</td>
+                <tr *ngFor="let disease of diseases | filter:searchText">
+                    <td> {{ disease.Name }}</td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
                         </a>
                         <mat-menu #menu="matMenu">
-                            <a mat-menu-item (click)="openAddPatient(patient.id)">
+                            <a mat-menu-item (click)="openAddDisease(disease.id)">
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
-                            <a mat-menu-item (click)="patientDelete(patient.id)">
+                            <a mat-menu-item (click)="diseaseDelete(disease.id)">
                                 <mat-icon>delete</mat-icon>
                                 <span>{{ 'Delete' | translate }}</span>
                             </a>

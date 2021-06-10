@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../../../utils';
 import { MatDialog } from '@angular/material/dialog';
-import { from } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private _languageService: LanguageService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _router: Router
   ) { }
 
   lang: string =

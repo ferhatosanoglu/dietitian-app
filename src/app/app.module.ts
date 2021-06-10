@@ -11,12 +11,19 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/layouts/client/header/header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
 } from './components';
 import {
   HomepageComponent
 } from './pages';
 import { AdminComponent } from './pages/admin/admin.component';
+import { DiseaseComponent } from './pages/client/disease/disease.component';
+import { DietComponent } from './pages/client/diet/diet.component';
+import { AddDietComponent } from './components/add-diet/add-diet.component';
+import { DialogWindowComponent } from './components/dialog-window/dialog-window.component';
+import { AddPatientComponent } from './components/add-patient/add-patient.component';
+import { AddDiseaseComponent } from './components/add-disease/add-disease.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -26,12 +33,19 @@ export function HttpLoaderFactory(http: HttpClient) {
     routingComponents,
     HeaderComponent,
     HomepageComponent,
-    AdminComponent
+    AdminComponent,
+    DiseaseComponent,
+    DietComponent,
+    AddDietComponent,
+    DialogWindowComponent,
+    AddPatientComponent,
+    AddDiseaseComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FontAwesomeModule,
     HttpClientModule,
     MatModule,
     MatSnackBarModule,

@@ -1,0 +1,61 @@
+<div ma-dialog-title class="institution-dialog__header">
+    <div class="institution-dialog__modal-header d-flex justify-content-between mx-1">
+        <h2>{{ "Patient Transactions" | translate }}</h2>
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon>close</mat-icon>
+        </a>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography institution-dialog__content">
+    <form #addPatientForm="ngForm" (ngSubmit)="onSave(addPatientForm)">
+        <div class="form-group mt-2">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ "Name" | translate }}</mat-label>
+                <input matInput maxlength="50" type="text" placeholder="{{ 'Enter Name' | translate }}" name="Name"
+                    #Name="ngModel" [(ngModel)]="_model.Name" required />
+                <mat-error *ngIf="Name.invalid && Name.touched">
+                    {{ "Name field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ "Surname" | translate }}</mat-label>
+                <input matInput maxlength="50" type="text" placeholder="{{ 'Enter Surname' | translate }}"
+                    name="Surname" #Surname="ngModel" [(ngModel)]="_model.Surname" required />
+                <mat-error *ngIf="Surname.invalid && Surname.touched">
+                    {{ "Surname field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ "T.C." | translate }}</mat-label>
+                <input matInput pattern="^[0-9]+$" maxlength="11" minlength="11"
+                    placeholder="{{ 'Enter the T.C' | translate }}" name="TC" #Tc="ngModel" [(ngModel)]="_model.TC"
+                    required />
+                <mat-error *ngIf="Tc.invalid && Tc.touched">
+                    {{ "Name field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-select placeholder="{{ 'Select Disease' | translate }}" name="DiseaseId" #DiseaseId="ngModel"
+                    [(ngModel)]="_model.DiseaseId">
+                    <ng-container *ngFor="let disease of diseases">
+                        <mat-option [value]="disease.id">
+                            {{ disease.Name }}
+                        </mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-select placeholder="{{ 'Select Diet' | translate }}" name="DietId" #DietId="ngModel"
+                    [(ngModel)]="_model.DietId">
+                    <ng-container *ngFor="let diet of diets">
+                        <mat-option [value]="diet.id">
+                            {{ diet.Name }}
+                        </mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary w-100">
+                {{ "Save" | translate }}
+            </button>
+        </div>
+    </form>
+</mat-dialog-content>
