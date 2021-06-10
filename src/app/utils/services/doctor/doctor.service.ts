@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ApiFetchService } from '../';
+import { ApiFetchService } from '../api-fetch/api-fetch.service';
 
 @Injectable({
   providedIn: 'root'
