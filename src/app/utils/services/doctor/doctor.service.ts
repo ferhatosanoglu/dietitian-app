@@ -7,6 +7,7 @@ import { ApiFetchService } from '../api-fetch/api-fetch.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DoctorService {
 
   constructor(
