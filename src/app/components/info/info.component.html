@@ -7,10 +7,58 @@
     </div>
 </div>
 <mat-dialog-content class="mat-typography institution-dialog__content">
+    <div class="row m-0 p-0" *ngIf="state">
+        <h1><b>{{"Name" | translate}} : </b> {{user.Name}}</h1>
+        <h1><b>{{"Surname" |translate}} : </b> {{user.Surname}}</h1>
+        <h1><b>{{"T.C." |translate}} : </b> {{user.TC}}</h1>
+        <h1><b>{{"Disease" |translate}} : </b> {{disease.DiseaseName}}</h1>
+        <h1><b>{{"Diet" |translate}} : </b> {{diet.DietName}}</h1>
+    </div>
 
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>{{"Monday" | translate}}</th>
+                <th>{{"Tuesday" | translate}}</th>
+                <th>{{"Wednesday" | translate}}</th>
+                <th>{{"Thursday" | translate}}</th>
+                <th>{{"Friday" | translate}}</th>
+                <th>{{"Saturday" | translate}}</th>
+                <th>{{"Sunday" | translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> {{ diet.Monday }}</td>
+                <td> {{ diet.Tuesday }}</td>
+                <td> {{ diet.Wednesday }}</td>
+                <td> {{ diet.Thursday }}</td>
+                <td> {{ diet.Friday }}</td>
+                <td> {{ diet.Saturday }}</td>
+                <td> {{ diet.Sunday }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-    <button type="button" (click)="downloadJson()" class="btn btn-primary w-100">
-        {{ "Save" | translate }}
-    </button>
+    <div class="row m-0 p-0" *ngIf="!state">
+        <h1><b>{{"Name" | translate}} : </b> {{user.Name}}</h1>
+        <h1><b>{{"Surname" |translate}} : </b> {{user.Surname}}</h1>
+        <h1><b>{{"T.C." |translate}} : </b> {{user.TC}}</h1>
+        <h1><b>{{"Disease" |translate}} : </b> {{disease.DiseaseName}}</h1>
+        <h1><b>{{"Diet" |translate}} : </b> {{diet.DietName}}</h1>
+    </div>
+    <div class="row m-0 p-0">
+        <div class="col-sm-4 m-0 p-0"><button type="button" (click)="downloadJson()" class="btn btn-primary w-100">
+                {{ "Json" | translate }}
+            </button></div>
+        <div class="col-sm-4 d-flex justify-content-center"><button type="button" (click)="convert()"
+                class="btn btn-primary">
+                <i class="fas fa-sync"></i>
+            </button></div>
+        <div class="col-sm-4 m-0 p-0"><button type="button" (click)="downloadXml()" class="btn btn-primary w-100">
+                {{ "html" | translate }}
+            </button></div>
+    </div>
+
 
 </mat-dialog-content>

@@ -36,7 +36,7 @@
                     [(ngModel)]="_model.DiseaseId">
                     <ng-container *ngFor="let disease of diseases">
                         <mat-option [value]="disease.id">
-                            {{ disease.Name }}
+                            {{ disease.DiseaseName }}
                         </mat-option>
                     </ng-container>
                 </mat-select>
@@ -46,7 +46,7 @@
                     [(ngModel)]="_model.DietId">
                     <ng-container *ngFor="let diet of diets">
                         <mat-option [value]="diet.id">
-                            {{ diet.Name }}
+                            {{ diet.DietName }}
                         </mat-option>
                     </ng-container>
                 </mat-select>
