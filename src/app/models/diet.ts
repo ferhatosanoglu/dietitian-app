@@ -1,6 +1,6 @@
 export class Diet {
-    id!: number;
-    Name!: string;
+    id?: number;
+    DietName!: string;
     Monday!: string;
     Tuesday!: string;
     Wednesday!: string;

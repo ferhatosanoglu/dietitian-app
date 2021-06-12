@@ -41,6 +41,10 @@
                                 <mat-icon>edit</mat-icon>
                                 <span>{{ 'Edit' | translate }}</span>
                             </a>
+                            <a mat-menu-item (click)="openInfo(patient.id)">
+                                <mat-icon>edit</mat-icon>
+                                <span>{{ 'Info' | translate }}</span>
+                            </a>
                             <a mat-menu-item (click)="patientDelete(patient.id)">
                                 <mat-icon>delete</mat-icon>
                                 <span>{{ 'Delete' | translate }}</span>

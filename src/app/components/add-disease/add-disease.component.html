@@ -12,8 +12,8 @@
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>{{ "Disease Name" | translate }}</mat-label>
                 <input matInput maxlength="50" type="text" placeholder="{{ 'Enter Disease Name' | translate }}"
-                    name="Name" #Name="ngModel" [(ngModel)]="_model.Name" required />
-                <mat-error *ngIf="Name.invalid && Name.touched">
+                    name="DiseaseName" #DiseaseName="ngModel" [(ngModel)]="_model.DiseaseName" required />
+                <mat-error *ngIf="DiseaseName.invalid && DiseaseName.touched">
                     {{ "Disease Name field must be filled" | translate }}</mat-error>
             </mat-form-field>
         </div>

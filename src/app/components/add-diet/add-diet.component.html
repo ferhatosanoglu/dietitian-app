@@ -11,9 +11,9 @@
         <div class="form-group mt-2">
             <mat-form-field appearance="outline" class="w-100">
                 <mat-label>{{ "Diet Name" | translate }}</mat-label>
-                <input matInput maxlength="50" type="text" placeholder="{{ 'Enter Diet Name' | translate }}" name="Name"
-                    #Name="ngModel" [(ngModel)]="_model.Name" required />
-                <mat-error *ngIf="Name.invalid && Name.touched">
+                <input matInput maxlength="50" type="text" placeholder="{{ 'Enter Diet Name' | translate }}"
+                    name="DietName" #DietName="ngModel" [(ngModel)]="_model.DietName" required />
+                <mat-error *ngIf="DietName.invalid && DietName.touched">
                     {{ "Diet Name field must be filled" | translate }}</mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline" class="col-6">

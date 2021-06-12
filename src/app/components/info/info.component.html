@@ -1,0 +1,16 @@
+<div ma-dialog-title class="institution-dialog__header">
+    <div class="institution-dialog__modal-header d-flex justify-content-between mx-1">
+        <h2>{{ "Disease Transactions" | translate }}</h2>
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon>close</mat-icon>
+        </a>
+    </div>
+</div>
+<mat-dialog-content class="mat-typography institution-dialog__content">
+
+
+    <button type="button" (click)="downloadJson()" class="btn btn-primary w-100">
+        {{ "Save" | translate }}
+    </button>
+
+</mat-dialog-content>

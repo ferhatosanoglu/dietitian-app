@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit {
       : this._languageService.getLanguage() || 'tr';
   async ngOnInit() {
     this.doctor = <Doctor>await this._doctorService.findAsync(this.Id);
-    console.log(this.doctor);
   }
 
   setLang(lang: string) {

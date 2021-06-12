@@ -8,6 +8,7 @@ import {
   AddPatientComponent,
   DialogWindowComponent
 } from '../../../components';
+import { InfoComponent } from 'src/app/components/info/info.component';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -40,14 +41,27 @@ export class HomepageComponent implements OnInit {
   }
   findDisease(Id: number) {
     const temp = this.diseases.find(name => name.id == Id)
-    return temp?.Name
+    return temp?.DiseaseName
   }
   findDiet(Id: number) {
     const temp = this.diets.find(name => name.id == Id)
-    return temp?.Name
+    return temp?.DietName
   }
   openAddPatient(Id = null) {
     const diologRef = this._dialog.open(AddPatientComponent, {
+      width: '80vw',
+      data:
+        Id == null
+          ? null
+          : this.patients.find((patient) => patient.id == Id),
+    });
+    diologRef.afterClosed().subscribe((result: any) => {
+      if (result) this.ngOnInit();
+    });
+  }
+
+  openInfo(Id = null) {
+    const diologRef = this._dialog.open(InfoComponent, {
       width: '80vw',
       data:
         Id == null

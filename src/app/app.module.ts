@@ -24,6 +24,7 @@ import { AddPatientComponent } from './components/add-patient/add-patient.compon
 import { AddDiseaseComponent } from './components/add-disease/add-disease.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddDoctorComponent } from './components/add-doctor/add-doctor.component';
+import { InfoComponent } from './components/info/info.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -41,7 +42,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddPatientComponent,
     AddDiseaseComponent,
     LoginComponent,
-    AddDoctorComponent
+    AddDoctorComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
 export class Disease {
-    id!: number;
-    Name!: string;
+    id?: number;
+    DiseaseName!: string;
 }

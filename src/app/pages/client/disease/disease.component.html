@@ -25,7 +25,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let disease of diseases | filter:searchText">
-                    <td> {{ disease.Name }}</td>
+                    <td> {{ disease.DiseaseName }}</td>
                     <td class="list-button text-right">
                         <a mat-icon-button [matMenuTriggerFor]="menu">
                             <mat-icon class="list-menu">more_vert</mat-icon>
